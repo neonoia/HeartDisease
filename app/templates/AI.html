@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible">
     <title>Heart Disease Analyzer</title>
     
-    <link rel="stylesheet" href="CSS/style.css">
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
 </head>
 <!-- MultiStep Form -->
 <body>
@@ -151,5 +151,5 @@
 </body>
 <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
 <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
-<script src="JS/script.js"></script>
+<script src="{{url_for('static', filename='script/script.js')}}"></script>
 </html>

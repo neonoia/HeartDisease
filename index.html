@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible">
+    <title>Heart Disease Analyzer</title>
+
+    <!-- Main css -->
+    <!--<link rel="stylesheet" href="css/style.css">-->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+</head>
+<body>
+	<link rel="stylesheet" href="desainAI.css">
+    <div class="container">
+        <div class="bartitle">
+			<h1>HeartDisease</h1>
+        </div>
+        <div class="signup-form">
+            <form method="POST" class="register-form" id="register-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="flex-container">
+							<div>
+								<label for="Age" class="required">Age</label>
+							</div>
+							<div>	
+								<input type="text" name="age" id="age" />
+							</div>
+                        </div>
+                        <div class="flex-container">
+                            <div>
+                                <label for="Sex" class = "required">Sex</label>
+                            </div>            
+                            <div>
+                                <input type="radio" name="sex" id="male" value=1>
+                                <label for="Male">Male</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="sex" id="female" value=0>
+                                <label for="Female">Female</label>
+                            </div>
+                        </div>
+                        <div class="flex-container">
+                            <div>
+                                <label for="Chest-pain type" class="required">Chest-pain type</label>
+                            </div>
+                            <div>
+                                <select name="chestpain_type" id="chestpain_type">
+                                    <option value=1>Typical angina</option>
+                                    <option value=2>Atypical angina</option>
+                                    <option value=3>Non-anginal pain</option>
+                                    <option value=4>Asymptotic</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex-container">
+							<div>
+								<label for="Resting blood pressure" class="required">Resting blood pressure (mmHg)</label>
+                            </div>
+							<div>
+								<input type="text" name="resting_blood_pressure" id="resting_blood_pressure" />
+							</div>
+                        </div>
+                        <div class="flex-container">
+							<div>
+								<label for="Serum cholestrol" class="required">Serum cholestrol</label>
+                            </div>
+                            <div>
+								<input type="text" name="serum_cholesterol" id="serum_cholesterol" />
+							</div>
+                        </div>
+                        <div class="flex-container">
+                            <div>
+                                <label for="Fasting blood sugar" class="required">Fasting blood sugar > 120 mg/dl</label>
+                            </div>                            
+                            <div>
+                                <input type="radio" name="sugar" id="true" value=1>
+                                <label for="True">True</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="sugar" id="false" value=0>
+                                <label for="False">False</label>
+                            </div>
+                        </div>
+                        <div class="flex-container">
+                            <div>
+								<label for="Resting ECG" class="required">Resting ECG</label>
+                            </div>
+                            <div>
+                                <select name="resting" id="resting">
+                                    <option value=0>Normal</option>
+                                    <option value=1>Having ST-T wave abnormality</option>
+                                    <option value=2>Left ventricular hyperthropy</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex-container">
+							<div>
+								<label for="Max-heart rate" class="required">Max-heart rate</label>
+                            </div>
+                            <div>
+								<input type="text" name="max_heart_rate" id="max_heart_rate" />
+							</div>
+                        </div>
+                        <div class="flex-container">
+                            <div>
+								<label for="Exercise Include Angina" class="required">Exercise include angina</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="include_angina" id="include_angina" value=1>
+                                <label for="Yes">Yes</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="include_angina" id="include_angina" value=0>
+                                <label for="No">No</label>
+                            </div>
+                        </div>
+                        <div class="flex-container">
+							<div>
+								<label for="ST depression induced by exercise relative to rest" class="required">ST depression induced by exercise relative to rest</label>
+							</div>
+							<div>
+								<input type="text" name="depression" id="depression" />
+							</div>
+                        </div>
+                        <div class="flex-container">
+                            <div>
+                                <label for="Peak exercise ST segment" class="required">Peak exercise ST segment</label>
+                            </div>
+                            <div>
+                                <select name="peak_exercise" id="peak_exercise">
+                                    <option value=1>Upsloping</option>
+                                    <option value=2>Flat</option>
+                                    <option value=3>Downsloping</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex-container">
+							<div>
+								<label for="Number of major vessels" class="required">Number of major vessels</label>
+							</div>
+							<div>	
+								<input type="text" name="major_vessels" id="major_vessels" />
+							</div>
+                        </div>
+                        <div class="flex-container">
+                            <div>
+                                <label for="Thal" class="required">Thal</label>
+                            </div>
+                            <div>
+                                <select name="thal" id="thal">
+                                    <option value=3>Normal</option>
+                                    <option value=6>Fixed defect</option>
+                                    <option value=7>Reversable defect</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                <div class="form-submit">
+                    <input type="submit" value="Submit" class="submit" id="submit" name="submit" />
+                    <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

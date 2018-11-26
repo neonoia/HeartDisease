@@ -17,7 +17,7 @@
                 <ul id="progressbar">
                     <li class="active">Personal Details</li>
                     <li>Blood Test Result</li>
-                    <li>Account Setup</li>
+                    <li>HeartDisease Result</li>
                 </ul>
                 <!-- fieldsets -->
                 <fieldset>
@@ -44,21 +44,100 @@
                 <fieldset>
                     <h2 class="fs-title">Blood Test result</h2>
                     <h3 class="fs-subtitle">Give me your blood test result</h3>
-
+                    <div class="flex-container">
+                        <div>
+                            <label for="Chest-pain type" class="required">Chest-pain type</label>
+                        </div>
+                        <div>
+                            <select name="chestpain_type" id="chestpain_type">
+                                <option value=1>Typical angina</option>
+                                <option value=2>Atypical angina</option>
+                                <option value=3>Non-anginal pain</option>
+                                <option value=4>Asymptotic</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input type="text" name="resting_blood_pressure" id="resting_blood_pressure" placeholder="Resting blood pressure (mmHg)" />
+                    <input type="text" name="serum_cholesterol" id="serum_cholesterol" placeholder="Serum Colsetrol"/>
+                    <div class="flex-container">
+                        <div>
+                            <label for="Fasting blood sugar" class="required">Fasting blood sugar > 120 mg/dl</label>
+                        </div>                            
+                        <div>
+                            <input type="radio" name="sugar" id="true" value=1>
+                            <label for="True">True</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="sugar" id="false" value=0>
+                            <label for="False">False</label>
+                        </div>
+                    </div>
+                    <div class="flex-container">
+                        <div>
+							<label for="Resting ECG" class="required">Resting ECG</label>
+                        </div>
+                        <div>
+                            <select name="resting" id="resting">
+                                <option value=0>Normal</option>
+                                <option value=1>Having ST-T wave abnormality</option>
+                                <option value=2>Left ventricular hyperthropy</option>
+                            </select>
+                        </div>
+                    </div>
+					<input type="text" name="max_heart_rate" id="max_heart_rate" placeholder="max heart rate" />
+                    <div class="flex-container">
+                        <div>
+							<label for="Exercise Include Angina" class="required">Exercise include angina</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="include_angina" id="include_angina" value=1>
+                            <label for="Yes">Yes</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="include_angina" id="include_angina" value=0>
+                            <label for="No">No</label>
+                        </div>
+                    </div>
+						<input type="text" name="depression" id="depression" placeholder="ST depression induced by exercise relative to rest" />
+                    <div class="flex-container">
+                        <div>
+                            <label for="Peak exercise ST segment" class="required">Peak exercise ST segment</label>
+                        </div>
+                        <div>
+                            <select name="peak_exercise" id="peak_exercise">
+                                <option value=1>Upsloping</option>
+                                <option value=2>Flat</option>
+                                <option value=3>Downsloping</option>
+                            </select>
+                        </div>
+                    </div>
+						<input type="text" name="major_vessels" id="major_vessels" placeholder="Number of major vessels" />				
+                    <div class="flex-container">
+                        <div>
+                            <label for="Thal" class="required">Thal</label>
+                        </div>
+                        <div>
+                            <select name="thal" id="thal">
+                                <option value=3>Normal</option>
+                                <option value=6>Fixed defect</option>
+                                <option value=7>Reversable defect</option>
+                            </select>
+                        </div>
+                    </div>
                     <!--<input type="text" name="twitter" placeholder="Twitter"/>
                     <input type="text" name="facebook" placeholder="Facebook"/>
                     <input type="text" name="gplus" placeholder="Google Plus"/>-->
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                    <input type="button" name="next" class="next action-button" value="Next"/>
+                    <input type="submit" name="submit" class="submit action-button" value="Submit"/>
                 </fieldset>
                 <fieldset>
-                    <h2 class="fs-title">Create your account</h2>
-                    <h3 class="fs-subtitle">Fill in your credentials</h3>
-                    <input type="text" name="email" placeholder="Email"/>
+                    <h2 class="fs-title">HeartDisease result</h2>
+                    <h3 class="fs-subtitle">This is your HeartDisease result</h3>
+                    <!--<input type="text" name="email" placeholder="Email"/>
                     <input type="password" name="pass" placeholder="Password"/>
-                    <input type="password" name="cpass" placeholder="Confirm Password"/>
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                    <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+                    <input type="password" name="cpass" placeholder="Confirm Password"/>-->
+                    <!--<input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                    <input type="submit" name="submit" class="submit action-button" value="Submit"/>-->
                 </fieldset>
             </form>
             <!-- link to designify.me code snippets -->

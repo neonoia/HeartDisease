@@ -71,7 +71,32 @@ body {
     font-size: 13px;
 }
 
+#msform select, #msform option {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+    background-color: white;
+}
+
 #msform input:focus, #msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #ee0979;
+    outline-width: 0;
+    transition: All 0.5s ease-in;
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+}
+
+#msform select:focus, #msform option:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -131,6 +156,19 @@ body {
     font-size: 13px;
     color: #666;
     margin-bottom: 20px;
+}
+
+.fs-result-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.fs-result {
+    font-size: 16px;
+    color: #2C3E50;
+    font-weight: bold;
 }
 
 /*progressbar*/

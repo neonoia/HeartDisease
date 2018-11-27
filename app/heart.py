@@ -1,25 +1,25 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import pickle
 import pandas as pd
 import numpy as np
+
 from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('AI.html')
+    return render_template('index.html')
 
 @app.route('/result', methods = ['POST'])
 def run():
     # Get data input
-    name = request.form['fname'] + request.form['lname']
     age = request.form['age']
     sex = request.form['sex']
     chestpain = request.form['chestpain_type']
     rest_blood = request.form['resting_blood_pressure']
     serum_chol = request.form['serum_cholesterol']
-    fast_blood = request.form['sugar']
+    fast_blood = 1 if int(request.form['sugar']) > 120 else 0
     rest_ecg = request.form['resting']
     max_heart_rate = request.form['max_heart_rate']
     exercise = request.form['include_angina']
@@ -62,7 +62,10 @@ def run():
     # Predict
     predict = model.predict(data)
 
-    return render_template('result.html', result = predict[0])
+    print("------------------------------")
+    print(predict[0])
+
+    return jsonify(int(predict[0]))
 
 if __name__ == '__main__' :
     app.run(debug = True)

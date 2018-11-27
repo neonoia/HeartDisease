@@ -10,7 +10,7 @@ app = Flask(__name__)
 def index():
     return render_template('AI.html')
 
-@app.route('/', methods = ['POST'])
+@app.route('/result', methods = ['POST'])
 def run():
     # Get data input
     name = request.form['fname'] + request.form['lname']
@@ -30,43 +30,39 @@ def run():
     with open('model.sav', 'rb') as file :
         model = pickle.load(file)
 
+    # Normalize Data
+    rest_blood = ((float(rest_blood)*2)-200)/200
+    serum_chol = ((float(serum_chol)*2)-529)/529
+    max_heart_rate = ((float(max_heart_rate)*2)-202-60)/(202-60)
+    depression = ((float(depression)*2)-62+2.6)/(62+2.6)
+
     # Create data
     if (rest_ecg == 0) :
         if (peak == 1) :
-            data = np.array([[int(age),int(sex),int(chestpain),float(rest_blood),float(serum_chol),float(fast_blood),float(max_heart_rate),float(exercise),float(depression),1,0,0,1,0,0]])
+            data = np.array([[int(age),int(sex),int(chestpain),rest_blood,serum_chol,float(fast_blood),max_heart_rate,float(exercise),depression,1,0,0,1,0,0]])
         elif (peak == 2) :
-            data = np.array([[int(age),int(sex),int(chestpain),float(rest_blood),float(serum_chol),float(fast_blood),float(max_heart_rate),float(exercise),float(depression),1,0,0,0,1,0]])
+            data = np.array([[int(age),int(sex),int(chestpain),rest_blood,serum_chol,float(fast_blood),max_heart_rate,float(exercise),depression,1,0,0,0,1,0]])
         else :
-            data = np.array([[int(age),int(sex),int(chestpain),float(rest_blood),float(serum_chol),float(fast_blood),float(max_heart_rate),float(exercise),float(depression),1,0,0,0,0,1]])
+            data = np.array([[int(age),int(sex),int(chestpain),rest_blood,serum_chol,float(fast_blood),max_heart_rate,float(exercise),depression,1,0,0,0,0,1]])
     elif (rest_ecg == 1) :
         if (peak == 1) :
-            data = np.array([[int(age),int(sex),int(chestpain),float(rest_blood),float(serum_chol),float(fast_blood),float(max_heart_rate),float(exercise),float(depression),0,1,0,1,0,0]])
+            data = np.array([[int(age),int(sex),int(chestpain),rest_blood,serum_chol,float(fast_blood),max_heart_rate,float(exercise),depression,0,1,0,1,0,0]])
         elif (peak == 2) :
-            data = np.array([[int(age),int(sex),int(chestpain),float(rest_blood),float(serum_chol),float(fast_blood),float(max_heart_rate),float(exercise),float(depression),0,1,0,0,1,0]])
+            data = np.array([[int(age),int(sex),int(chestpain),rest_blood,serum_chol,float(fast_blood),max_heart_rate,float(exercise),depression,0,1,0,0,1,0]])
         else :
-            data = np.array([[int(age),int(sex),int(chestpain),float(rest_blood),float(serum_chol),float(fast_blood),float(max_heart_rate),float(exercise),float(depression),0,1,0,0,0,1]])
+            data = np.array([[int(age),int(sex),int(chestpain),rest_blood,serum_chol,float(fast_blood),max_heart_rate,float(exercise),depression,0,1,0,0,0,1]])
     else :
         if (peak == 1) :
-            data = np.array([[int(age),int(sex),int(chestpain),float(rest_blood),float(serum_chol),float(fast_blood),float(max_heart_rate),float(exercise),float(depression),0,0,1,1,0,0]])
+            data = np.array([[int(age),int(sex),int(chestpain),rest_blood,serum_chol,float(fast_blood),max_heart_rate,float(exercise),depression,0,0,1,1,0,0]])
         elif (peak == 2) :
-            data = np.array([[int(age),int(sex),int(chestpain),float(rest_blood),float(serum_chol),float(fast_blood),float(max_heart_rate),float(exercise),float(depression),0,0,1,0,1,0]])
+            data = np.array([[int(age),int(sex),int(chestpain),rest_blood,serum_chol,float(fast_blood),max_heart_rate,float(exercise),depression,0,0,1,0,1,0]])
         else :
-            data = np.array([[int(age),int(sex),int(chestpain),float(rest_blood),float(serum_chol),float(fast_blood),float(max_heart_rate),float(exercise),float(depression),0,0,1,0,0,1]])
-
-    # Normalize Data
-    #data = StandardScaler().fit_transform(data)
-    #data[0] = StandardScaler().fit_transform(data[0])
-    #data[0] = StandardScaler().fit_transform(data[0])
-    #data[0] = StandardScaler().fit_transform(data[0])
-    #rest_blood = StandardScaler().fit_transform(float(rest_blood))
-    #serum_chol = StandardScaler().fit_transform(float(serum_chol))
-    #max_heart_rate = StandardScaler().fit_transform(float(max_heart_rate))
-    #depression = StandardScaler().fit_transform(float(depression))
+            data = np.array([[int(age),int(sex),int(chestpain),rest_blood,serum_chol,float(fast_blood),max_heart_rate,float(exercise),depression,0,0,1,0,0,1]])
 
     # Predict
     predict = model.predict(data)
 
-    return render_template('AI.html', result = predict[0])
+    return render_template('result.html', result = predict[0])
 
 if __name__ == '__main__' :
     app.run(debug = True)

@@ -1,5 +1,5 @@
-# HeartDisease &middot;
-[![GitLab license](https://img.shields.io/github/license/Day8/re-frame.svg)](LICENSE)
+# HeartDisease &middot; [![GitLab license](https://img.shields.io/github/license/Day8/re-frame.svg)](LICENSE)
+
 Web-based application for classification of heart disease based on structured clinical data.
 
 ## Running
